@@ -67,11 +67,35 @@ function showLink(message, description) {
 /* Render div with a link to newly created join.me */
 function render_goto(site_name, identifier) {
     clog("in render_goto()");
-    $('.renderable').css('display', 'none');
-    $('#c_go_to_wp').css('display', 'block');
-    var uri = 'https://join.me/' + identifier;
-    $('#new_blog_link').attr('href', uri).text('right over here');
+    $('#joinme_div').css('display', 'block');
+    $('#joinme_list').append('<li><a href="https://join.me/' + identifier + '" target="_blank">' + site_name + '</a></li>');
     /* Make link disappear after it's clicked. */
+}
+
+function handle_resource_response(response) {
+    clog("This is what I got:");
+    console.log(response);
+    var res = $.parseJSON(response.resource);
+    console.log(res);
+    if (res.length > 0) {
+        $('.renderable').css('display', 'none');
+        $('#joinme_list').css('display', 'block');
+    } else {
+        render_create();
+    }
+}
+
+/* Fire a request for resources and pass the response to rendering function. */
+function get_wp_resources(group_id) {
+    if (osapi.resources === undefined) {
+        clog("osapi.resources is not defined. This won't work. Missing a <require>, maybe?");
+    } else {
+        clog("asking for " + get_current_group() + "'s resources");
+        /* readable, innit? */
+        osapi.resources.getResources({
+            'groupId': get_current_group()
+        }).execute(handle_resource_response);
+    }
 }
 
 function entry() {
@@ -87,16 +111,7 @@ function entry() {
             var group_name = ev.data.split(":");
             group_name = group_name[group_name.length-1];
             clog("Your group: " + group_name);
-            showLink(group_name);
-            $('#divRss').FeedEk({
-                FeedUrl : 'https://www.jiscmail.ac.uk/cgi-bin/webadmin?RSS&v=2.0&L=' + group_name,
-                MaxCount : 10,
-                ShowDesc : false,
-                ShowPubDate:true,
-                DescCharacterLimit:80,
-                TitleLinkTarget:'_blank',
-                groupName: group_name
-            });
+            get_wp_resources(group_name);
         } else {
             clog("no changes required, same group.");
         }

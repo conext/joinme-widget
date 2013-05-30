@@ -131,7 +131,7 @@ function entry() {
             "groupId": get_current_group(),
             "obj" : {
                 "local_name": local_name,
-                "uri": "https://join.me/" + identifier
+                "uri": identifier
             }
         }).execute(function(res) {
                 clog("response I got: ");

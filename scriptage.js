@@ -64,6 +64,16 @@ function showLink(message, description) {
     $('#linkhref').attr("href","https://www.jiscmail.ac.uk/cgi-bin/webadmin?A0=" + message)
 }
 
+/* Render div with a link to newly created join.me */
+function render_goto(site_name, identifier) {
+    clog("in render_goto()");
+    $('.renderable').css('display', 'none');
+    $('#c_go_to_wp').css('display', 'block');
+    var uri = 'https://join.me/' + identifier;
+    $('#new_blog_link').attr('href', uri).text('right over here');
+    /* Make link disappear after it's clicked. */
+}
+
 function entry() {
     /* enlarge your widget. satisfy your user. */
     gadgets.window.adjustHeight(295);
@@ -111,10 +121,10 @@ function entry() {
                 var res = $.parseJSON(res.resource);
                 console.log(res);
                 if (res.outcome == "ok") {
-                    render_goto_wp(local_name);
+                    render_goto(local_name, identifier);
                 } else {
                     clog("Not OK.");
-                    render_goto_wp(local_name);
+                    render_goto(local_name);
                 }
             });
     });

@@ -5,6 +5,7 @@ body {
 }
 
 #content {
+    font-family: 'Open Sans', sans-serif;
     display: none;
 }
 
@@ -115,38 +116,3 @@ div.post {
     color: #099;
 }
 
-.feedEkList {
-    font-family: 'Open Sans', sans-serif;
-    list-style:none outside none;
-    padding:4px;
-    color:#494949;
-    -webkit-margin-before: 0em;
-}
-
-.feedEkList li {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
-    border-bottom: 1px dotted #ccc;
-    margin-top: 3px;
-    margin-bottom: 3px;
-}
-.feedEkList li:last-child {
-    border-bottom:none;
-}
-
-.itemTitle a {
-    font-family: 'Open Sans', sans-serif;
-    font-weight:bold;
-    color:#494949;
-    text-decoration:none
-}
-
-.itemTitle a:hover {
-    text-decoration:underline
-}
-
-.itemDate{
-    font-family: 'Open Sans', sans-serif;
-    font-size:11px;
-    color:#AAAAAA;
-}

@@ -1,0 +1,65 @@
+<Module>
+    <ModulePrefs
+            title="Join.me Widget"
+            title_url="https://github.com/conext/joinme-widget"
+            directory_title="Dir"
+            description="A widget that gives users access to JOIN.me services."
+            screenshot="https://joinme-widget.identitylabs.org/joinme.png"
+            thumbnail="https://joinme-widget.identitylabs.org/joinme.png"
+            category="tools"
+            category2="productivity"
+            author="Cloud Identity Limited - http://www.cloudidentity.co.uk"
+            author_email="info@cloudidentity.co.uk">
+
+        <Require feature="setprefs"/>
+        <Require feature="dynamic-height"/>
+        <Require feature="opensocial-2.5"/>
+        <Require feature="osapi"/>
+        <Require feature="views"/>
+        <Require feature="resources"/>
+
+    </ModulePrefs>
+
+    <!-- Default view -->
+    <Content view="default" type="html">
+        <![CDATA[
+
+    <!-- "<link> tags should only appear in <head> .. ;)" -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://joinme-widget.identitylabs.org/flair.css"></link>
+    <script type="text/javascript" src="https://joinme-widget.identitylabs.org/scriptage.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/placemarker/jQuery-MD5/master/jquery.md5.js"></script>
+    <script type="text/javascript">
+        gadgets.util.registerOnLoadHandler(entry);
+    </script>
+
+    <div id="splash">
+        &nbsp;
+    </div>
+    <div id="content">
+
+        <div id="bar">
+        </div>
+
+        <div id="link">
+        Visit <a target="_blank" id="linkhref" href="#"></a>
+        </div>
+
+        <div id="messagebox">
+            <div id="mbox_title">
+            _
+            </div>
+            <div id="mbox_description">
+            _
+            </div>
+        </div>
+
+
+        <div id="divRss">
+         </div>
+    </div>
+
+    ]]>
+    </Content>
+</Module>

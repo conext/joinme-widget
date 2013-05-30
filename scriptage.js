@@ -72,5 +72,30 @@ function entry() {
     });
 
     top.postMessage("let's go!", top.location.origin);
+
+    $('#create_form').submit(function(e) {
+        e.preventDefault();
+        var local_name = $('#site_name').val();
+        var identifier = $('#identifier').val();
+        clog("Will create: " + local_name + " for " + identifier);
+        osapi.resources.createResource({
+            "groupId": get_current_group(),
+            "obj" : {
+                "local_name": local_name,
+                "uri": "https://join.me/" + identifier
+            }
+        }).execute(function(res) {
+                clog("response I got: ");
+                console.log(res);
+                var res = $.parseJSON(res.resource);
+                console.log(res);
+                if (res.outcome == "ok") {
+                    render_goto_wp(local_name);
+                } else {
+                    clog("Not OK.");
+                    render_goto_wp(local_name);
+                }
+            });
+    });
 }
 

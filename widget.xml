@@ -42,10 +42,6 @@
         <div id="bar">
         </div>
 
-        <div id="link">
-        Visit <a target="_blank" id="linkhref" href="#"></a>
-        </div>
-
         <div id="messagebox">
             <div id="mbox_title">
             _
@@ -63,6 +59,10 @@
                 <input type="text" id="identifier" size=30 placeholder="identifier"/>
                 <input type="submit" id="create_btn" value="Go &rsaquo;">
                </form>
+        </div>
+
+        <div id="link">
+        Visit <a target="_blank" id="linkhref" href="#"></a>
         </div>
 
     </div>

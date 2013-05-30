@@ -80,8 +80,11 @@ function handle_resource_response(response) {
     decommission_splash();
     if (res.length > 0) {
         $('#joinme_list').css('display', 'block');
-    } else {
-        render_create();
+        $('#joinme_list').empty();
+        res.forEach(function(e) {
+            $('#joinme_list')
+                .append('<li><a href="https://join.me/' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a></li>');
+        });
     }
 }
 
@@ -139,7 +142,7 @@ function entry() {
                     render_goto(local_name, identifier);
                 } else {
                     clog("Not OK.");
-                    render_goto(local_name);
+                    render_goto(local_name, identifier);
                 }
             });
     });

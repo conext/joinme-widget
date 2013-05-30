@@ -19,6 +19,27 @@ function render_empty_feed(group_name) {
     ); 
 }
 
+function get_user_groups() {
+    osapi.groups.get().execute(function(d) {
+        clog("in get_user_groups():");
+        console.log(d);
+        $('#group_select').empty();
+        d.list.forEach(function(e) {
+            $('#group_select').append($('<option></option>')
+                .attr('value', e.id)
+                .text(e.title + " (" + e.description + ")"));
+        });
+        /* jmp */
+        get_wp_resources();
+    });
+}
+
+/* Pull from dropdown, atm. */
+function get_current_group() {
+    return current_group; /* todo: cleanup */
+}
+
+
 function messagebox(message, description) {
     decommission_splash();
     $('#feed').hide();

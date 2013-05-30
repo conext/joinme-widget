@@ -15,10 +15,11 @@ body {
 
 #joinme_div {
     font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
 }
 
 .renderable {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #bar {

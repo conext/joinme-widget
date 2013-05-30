@@ -9,6 +9,18 @@ body {
     display: none;
 }
 
+#c_create {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#joinme_div {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.renderable {
+    margin-top: 20px;
+}
+
 #bar {
     background-color: #ffdf9c;
     background-image: url('https://joinme-widget.identitylabs.org/joinme.png');

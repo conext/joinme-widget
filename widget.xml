@@ -57,7 +57,7 @@
             <form action="#" id="create_form">
                 <input type="text" id="site_name" size=30 placeholder="group-name"/>
                 <input type="text" id="identifier" size=30 placeholder="identifier"/>
-                <input type="submit" id="create_btn" value="Go &rsaquo;">
+                <input type="submit" id="create_btn" value="Publish your screen &rsaquo;">
                </form>
         </div>
 

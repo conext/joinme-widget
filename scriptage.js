@@ -43,7 +43,7 @@ function get_current_group() {
 function messagebox(message, description) {
     decommission_splash();
     $('#joinme_div').hide();
-    $('#joinme_list').hide();
+    $('#c_create').hide();
     $('#messagebox').show();
     $('#mbox_title').text(message);
     $('#mbox_description').html(description);

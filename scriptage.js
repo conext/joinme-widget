@@ -83,7 +83,7 @@ function handle_resource_response(response) {
         $('#joinme_list').empty();
         res.forEach(function(e) {
             $('#joinme_list')
-                .append('<li><a href="https://join.me/' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a></li>');
+                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a></li>');
         });
     }
 }

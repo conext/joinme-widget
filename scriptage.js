@@ -79,7 +79,6 @@ function handle_resource_response(response) {
     console.log(res);
     decommission_splash();
     if (res.length > 0) {
-        $('.renderable').css('display', 'none');
         $('#joinme_list').css('display', 'block');
     } else {
         render_create();

@@ -56,8 +56,15 @@
         </div>
 
 
-        <div id="divRss">
-         </div>
+        <div id="c_create" class="renderable">
+            <form action="#" id="create_form">
+                <label for="site_name">Name:<br></label>
+                <input type="text" id="site_name" size=30 placeholder="group-name"/>
+                <input type="text" id="site_name" size=30 placeholder="identifier"/>
+                <input type="submit" id="create_btn" value="Go &rsaquo;">
+               </form>
+        </div>
+
     </div>
 
     ]]>

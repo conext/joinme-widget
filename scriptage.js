@@ -115,7 +115,7 @@ function entry() {
 
     top.postMessage("let's go!", top.location.origin);
 
-    $('#create_form').submit(function(e) {
+    $('#create_form').submit(function (e) {
         e.preventDefault();
         var local_name = $('#site_name').val();
         if (local_name == "") {
@@ -124,33 +124,31 @@ function entry() {
         var identifier = $('#identifier').val();
         clog("Will create: " + local_name + " for " + identifier);
         var date = new Date();
-        osapi.resources.createResource({
-            "groupId": get_current_group(),
-            "obj" : {
-                "local_name": local_name,
-                "uri": identifier,
-                "date": date
+        osapi.people.get({userId: '@owner'}).execute(function (result) {
+            if (!result.error) {
+                var owner = result.displayName;
+                osapi.resources.createResource({
+                    "groupId": get_current_group(),
+                    "obj": {
+                        "local_name": local_name,
+                        "uri": identifier,
+                        "time": date,
+                        "owner": owner
+                    }
+                }).execute(function (res) {
+                        clog("response I got: ");
+                        console.log(res);
+                        var res = $.parseJSON(res.resource);
+                        console.log(res);
+                        if (res.outcome == "ok") {
+                            render_goto(local_name, identifier, date, owner);
+                        } else {
+                            clog("Not OK.");
+                            render_goto(local_name, identifier, date, owner);
+                        }
+                    });
             }
-        }).execute(function(res) {
-                clog("response I got: ");
-                console.log(res);
-                var res = $.parseJSON(res.resource);
-                console.log(res);
-                if (res.outcome == "ok") {
-                    osapi.people.get({userId: '@owner'}).execute(function(result){
-                        if (!result.error) {
-                            render_goto(local_name, identifier, date, result.displayName);
-                        }
-                    })
-                } else {
-                    clog("Not OK.");
-                    osapi.people.get({userId: '@owner'}).execute(function(result){
-                        if (!result.error) {
-                            render_goto(local_name, identifier, date, result.displayName);
-                        }
-                    })
-                }
-            });
+        })
     });
 }
 

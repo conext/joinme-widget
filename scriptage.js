@@ -49,21 +49,6 @@ function messagebox(message, description) {
     $('#mbox_description').html(description);
 }
 
-function rssBox(message, description) {
-    decommission_splash();
-    $('#feed').hide();
-    $('#messagebox').show();
-    $('#mbox_title').text(message);
-    $('#mbox_description').html(description);
-}
-
-
-function showLink(message, description) {
-    decommission_splash();
-    $('#linkhref').text(message.toUpperCase() + " Mailing List");
-    $('#linkhref').attr("href","https://www.jiscmail.ac.uk/cgi-bin/webadmin?A0=" + message)
-}
-
 /* Render div with a link to newly created join.me */
 function render_goto(site_name, identifier) {
     clog("in render_goto()");
@@ -81,7 +66,7 @@ function handle_resource_response(response) {
     if (res.length > 0) {
         $('#joinme_list').css('display', 'block');
         $('#joinme_list').empty();
-        res.forEach(function(e) {
+        res.reverse().forEach(function(e) {
             $('#joinme_list')
                 .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a></li>');
         });

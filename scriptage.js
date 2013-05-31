@@ -68,8 +68,9 @@ function handle_resource_response(response) {
         $('#joinme_list').empty();
         res.reverse().forEach(function(e) {
             var d = Date.parse(e.resource.created_at);
+            var date = new Date(d);
             $('#joinme_list')
-                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> (' + d.toDateString() + ')</li>');
+                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> (' + date.toDateString() + ')</li>');
         });
     }
 }

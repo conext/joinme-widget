@@ -50,7 +50,7 @@ function messagebox(message, description) {
 }
 
 /* Render div with a link to newly created join.me */
-function render_goto(site_name, identifier, date) {
+function render_goto(site_name, identifier, date, displayName) {
     clog("in render_goto()");
     $('#joinme_div').css('display', 'block');
     $('#joinme_list').prepend('<li><a href="https://join.me/' + identifier + '" target="_blank">' + site_name + '</a> <span class="date">(' + date + ')</span> by ' + displayName + '</li>');

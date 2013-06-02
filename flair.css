@@ -134,3 +134,10 @@ div.post {
     color: #099;
 }
 
+.btn {
+    vertical-align: top;
+}
+
+input[type="text"] {
+    height: none;
+}

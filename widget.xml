@@ -24,6 +24,8 @@
     <Content view="default" type="html">
         <![CDATA[
 
+    <!doctype html>
+
     <!-- "<link> tags should only appear in <head> .. ;)" -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://joinme-widget.identitylabs.org/flair.css"></link>
@@ -54,7 +56,7 @@
 
         <div id="c_create" class="renderable">
             Add group screen sharing:
-            <form action="#" id="create_form">
+            <form action="#" id="create_form" class="form-inline">
             <fieldset>
                 <input type="text" id="site_name" size=30 placeholder="Screen name"/>
                 <input type="text" id="identifier" size=30 placeholder="Join.me Link"/>

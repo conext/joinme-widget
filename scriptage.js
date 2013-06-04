@@ -67,8 +67,6 @@ function handle_resource_response(response) {
         $('#joinme_list').css('display', 'block');
         $('#joinme_list').empty();
         res.reverse().forEach(function(e) {
-            var d = Date.parse(e.resource.created_at);
-            var date = new Date(d);
             $('#joinme_list')
                 .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date">(' + e.resource.time + ')</span> by ' + e.resource.owner + '</li>');
         });

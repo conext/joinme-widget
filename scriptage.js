@@ -53,7 +53,9 @@ function messagebox(message, description) {
 function render_goto(site_name, identifier, date, displayName) {
     clog("in render_goto()");
     $('#joinme_div').css('display', 'block');
-    $('#joinme_list').prepend('<li><a href="https://join.me/' + identifier + '" target="_blank">' + site_name + '</a> <span class="date" title="' + date + '"></span> by ' + displayName + '</li>');
+    var s = new Date(date).toISOString();
+    $('#joinme_list').prepend('<li><a href="https://join.me/' + identifier + '" target="_blank">' + site_name + '</a> by ' + displayName + '</li> -<span class="date" title="'+s+'"></span>');
+    $('span.date').timeago();
     /* Make link disappear after it's clicked. */
 }
 
@@ -69,7 +71,7 @@ function handle_resource_response(response) {
         res.reverse().forEach(function(e) {
             var s = new Date(e.resource.created_at).toISOString();
             $('#joinme_list')
-                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date" title="'+s+'"></span> by ' + e.resource.owner + '</li>');
+                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a>  by ' + e.resource.owner + '</li> -<span class="date" title="' + s + '"></span>');
             $('span.date').timeago();
         });
     } else {

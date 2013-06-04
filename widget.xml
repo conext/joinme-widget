@@ -59,8 +59,8 @@
             Add group screen sharing:
             <form action="#" id="create_form" class="form-inline">
             <fieldset>
-                <input type="text" id="site_name" size=30 placeholder="Screen name"/>
-                <input type="text" id="identifier" size=30 placeholder="Join.me Link"/>
+                <input type="text" id="site_name" size=30 placeholder="Screen name (optional)"/>
+                <input type="text" id="identifier" size=30 placeholder="Join.me Link" class="input-large"/>
                 <input type="submit" id="create_btn" class="btn" value="Publish your screen &rsaquo;">
                </form>
                </fieldset>

@@ -30,7 +30,7 @@ function get_user_groups() {
                 .text(e.title + " (" + e.description + ")"));
         });
         /* jmp */
-        get_wp_resources();
+        get_resources();
     });
 }
 
@@ -80,7 +80,7 @@ function handle_resource_response(response) {
 }
 
 /* Fire a request for resources and pass the response to rendering function. */
-function get_wp_resources(group_id) {
+function get_resources(group_id) {
     if (osapi.resources === undefined) {
         clog("osapi.resources is not defined. This won't work. Missing a <require>, maybe?");
     } else {
@@ -105,10 +105,10 @@ function entry() {
             var group_name = ev.data.split(":");
             group_name = group_name[group_name.length-1];
             clog("Your group: " + group_name);
-            get_wp_resources(group_name);
+            get_resources(group_name);
             setInterval(function() {
                 clog("15 seconds up. Updating feed.");
-                get_wp_resources(group_name);
+                get_resources(group_name);
             }, 15000);
         } else {
             clog("no changes required, same group.");

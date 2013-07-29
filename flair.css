@@ -29,7 +29,7 @@ body {
 
 #bar {
     background-color: #ffdf9c;
-    background-image: url('https://joinme-widget.identitylabs.org/joinme.png');
+    background-image: url('https://joinme-widget.identitylabs.org/joinme.png'); /* CONFIGURATION */
     background-size: auto 24px;
     background-position: 3px center;
     background-repeat: no-repeat;
@@ -37,7 +37,7 @@ body {
 }
 
 #splash {
-    background-image: url('https://joinme-widget.identitylabs.org/joinme.png');
+    background-image: url('https://joinme-widget.identitylabs.org/joinme.png'); /*CONFIGURATION */
     background-repeat: no-repeat;
     background-position: center center;
     background-color: #ffdf9c;
